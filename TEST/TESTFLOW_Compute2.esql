@@ -11,7 +11,7 @@ CREATE COMPUTE MODULE TESTFLOW_Compute2
 	END;
 
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
-		SET OutputRoot.JSON.Data = InputRoot.JSON.Data;
+		SET OutputRoot = InputRoot;
 		SET OutputRoot.JSON.Data.income = InputRoot.JSON.Data.daily * 30;
 	END;
 END MODULE;
