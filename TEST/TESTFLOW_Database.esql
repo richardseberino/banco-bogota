@@ -10,7 +10,7 @@ CREATE COMPUTE MODULE TESTFLOW_Database
 	CREATE PROCEDURE myProc1(IN empid CHAR, IN company CHAR) LANGUAGE DATABASE EXTERNAL NAME "myProc";
 
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
-		SET OutputRoot = InputRoot;
+		SET OutputRoot.JSON.Data = InputRoot.JSON.Data;
 --		PROPAGATE DELETE NONE;	
 --		CALL myProc1(InputRoot.JSON.Data.employee_id, InputRoot.JSON.Data.company) IN Database.{'TESTSCHEMA'};
 
