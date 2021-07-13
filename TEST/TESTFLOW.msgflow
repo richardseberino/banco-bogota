@@ -12,7 +12,7 @@
       <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="565,66" queueName="DEV.QUEUE.2" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN">
         <translation xmi:type="utility:ConstantString" string="MQ Output"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="597,189" queueName="DEV.QUEUE.4" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN">
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="597,189" queueName="DEV.QUEUE.3" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN">
         <translation xmi:type="utility:ConstantString" string="MQ Output1"/>
       </nodes>
       <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="325,297" queueName="DEV.QUEUE.4" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN">
