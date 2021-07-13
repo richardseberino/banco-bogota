@@ -1,0 +1,34 @@
+
+
+
+
+
+
+CREATE COMPUTE MODULE TESTFLOW_Compute3
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL insertException(InputExceptionList.*[1], OutputRoot );
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE insertException ( IN exceptionRef REFERENCE, IN outputRoot REFERENCE )
+	BEGIN
+		DECLARE exceptionType CHAR;
+		-- Parse the Exception for the last Error
+		WHILE( FIELDNAME(exceptionRef.*[<]) = 'RecoverableException' or
+		FIELDNAME(exceptionRef.*[<]) = 'ParserException' or
+		FIELDNAME(exceptionRef.*[<]) = 'DatabaseException' or
+		FIELDNAME(exceptionRef.*[<]) = 'UserException' or
+		FIELDNAME(exceptionRef.*[<]) = 'ConvertionException' )
+		DO
+		SET exceptionType = FIELDNAME( exceptionRef.*[<] );
+		MOVE exceptionRef TO exceptionRef.*[<];
+		END WHILE;
+		DECLARE exceptionNumber INT exceptionRef.Number;
+		SET OutputRoot.JSON.Data.codigo = exceptionRef.Number;
+		SET OutputRoot.JSON.Data.type = exceptionType;
+		SET OutputRoot.JSON.Data.error = exceptionRef.*[<].Text;
+		
+		
+	END;
+END MODULE;
