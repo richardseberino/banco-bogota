@@ -25,6 +25,7 @@ CREATE COMPUTE MODULE TESTFLOW_Compute3
 		MOVE exceptionRef TO exceptionRef.*[<];
 		END WHILE;
 		DECLARE exceptionNumber INT exceptionRef.Number;
+		SET OutputRoot = InputRoot;
 		SET OutputRoot.JSON.Data.codigo = exceptionRef.Number;
 		SET OutputRoot.JSON.Data.type = exceptionType;
 		SET OutputRoot.JSON.Data.error = exceptionRef.*[<].Text;

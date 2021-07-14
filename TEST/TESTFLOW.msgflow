@@ -6,16 +6,16 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/TEST/icons/full/obj16/TESTFLOW.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/TEST/icons/full/obj30/TESTFLOW.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="66,200" queueName="DEV.QUEUE.1" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN" messageDomainProperty="JSON">
+      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="66,200" queueName="DEV.QUEUE.INPUT" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN" messageDomainProperty="JSON">
         <translation xmi:type="utility:ConstantString" string="MQ Input"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="565,66" queueName="DEV.QUEUE.2" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN" persistenceMode="no">
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="565,66" queueName="DEV.QUEUE.AUDIT" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN" persistenceMode="no">
         <translation xmi:type="utility:ConstantString" string="MQ Output"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="597,189" queueName="DEV.QUEUE.3" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN">
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="597,189" queueName="DEV.QUEUE.NEXT" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN">
         <translation xmi:type="utility:ConstantString" string="MQ Output1"/>
       </nodes>
-      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="325,297" queueName="DEV.QUEUE.4" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN">
+      <nodes xmi:type="ComIbmMQOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="325,297" queueName="DEV.QUEUE.LOGGER" connection="CLIENT" destinationQueueManagerName="mqtest0" queueManagerHostname="mq-test" listenerPortNumber="1414" channelName="DEV.APP.SVRCONN">
         <translation xmi:type="utility:ConstantString" string="MQ Output2"/>
       </nodes>
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="171,132" computeExpression="esql://routine/#TESTFLOW_Compute.Main">
