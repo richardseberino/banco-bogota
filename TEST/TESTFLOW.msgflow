@@ -30,7 +30,7 @@
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="168,258" computeExpression="esql://routine/#TESTFLOW_Compute3.Main">
         <translation xmi:type="utility:ConstantString" string="Compute3"/>
       </nodes>
-      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="277,133" dataSource="EMPLOYEE" computeExpression="esql://routine/#TESTFLOW_Database.Main" computeMode="destination">
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="277,133" computeExpression="esql://routine/#TESTFLOW_Database.Main" computeMode="destination">
         <translation xmi:type="utility:ConstantString" string="Database"/>
       </nodes>
       <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
