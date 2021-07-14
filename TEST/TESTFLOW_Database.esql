@@ -7,18 +7,15 @@ CREATE COMPUTE MODULE TESTFLOW_Database
 		RETURN TRUE;
 	END;
 
-	CREATE PROCEDURE myProc1(IN empid CHAR, IN company CHAR) LANGUAGE DATABASE EXTERNAL NAME "myProc";
-
 	CREATE PROCEDURE CopyEntireMessage() BEGIN
 		SET OutputRoot = InputRoot;
 --		PROPAGATE DELETE NONE;	
---		CALL myProc1(InputRoot.JSON.Data.employee_id, InputRoot.JSON.Data.company) IN Database.{'TESTSCHEMA'};
 
 --		DECLARE ID CHARACTER;
 --		DECLARE EmpDetails ROW;
 --		
---		SET ID = SELECT * FROM DataSource.EMPLOYEE WHERE ID = 1;
---		SET EmpDetails = PASSTHRU(ID);
+		SET ID = SELECT * FROM DataSource.EMPLOYEE WHERE ID = 1;
+		SET EmpDetails = PASSTHRU(ID);
 		
 		PROPAGATE TO TERMINAL 'out1' DELETE NONE;
 		
