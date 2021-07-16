@@ -1,0 +1,1 @@
+mqsisetdbparms -w /home/aceuser/ace-server -n USERDB -u db2inst1 -p db2inst1-pwd
