@@ -1,10 +1,10 @@
 pipeline {
-    agent any
+    agent {dockerfile true}
     stages {
         stage('Initialize'){
             steps{
                 script{
-                    def dockerHome = tool 'docker'
+                    def dockerHome = tool 'myDocker'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
                 }
             }
@@ -12,9 +12,10 @@ pipeline {
         stage('Push App Connect Enterprise Docker Image to Registry') {            
             steps {
                 script {
+                    
                     // docker.withRegistry( '' ) {
-                        def barImage = docker.build("demo-bco-bogota:${env.BUILD_ID}")
-                        barImage.push('latest')
+                    def barImage = docker.build("demo-bco-bogota:${env.BUILD_ID}")
+                    barImage.push('latest')
                     // }
                 }
             }
