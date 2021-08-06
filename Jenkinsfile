@@ -1,9 +1,11 @@
 pipeline {
     agent any
     stages {
-        
-        stage('Push App Connect Enterprise Docker Image to Registry') {
-            agent {dockerfile true}
+        stage('Initialize'){
+            def dockerHome = tool 'docker'
+            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
+        stage('Push App Connect Enterprise Docker Image to Registry') {            
             steps {
                 script {
                     // docker.withRegistry( '' ) {
