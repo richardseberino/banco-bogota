@@ -6,6 +6,7 @@ pipeline {
   agent {
     node {
       label 'container-tools' 
+      withEnv(["PATH+OC=${tool 'oc.3.11.0'}"])
     }
   }
   
