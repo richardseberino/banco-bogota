@@ -56,7 +56,7 @@ pipeline {
             openshift.withCluster() {
                 openshift.withProject() {
                     echo 'Create deployment from yaml files'
-                    sh 'oc apply -f ./01-detalleproducto-deployment.yaml'
+                    sh 'oc apply -f 01-detalleproducto-deployment.yaml'
                 }
             }
         }
@@ -68,7 +68,7 @@ pipeline {
           script {
               openshift.withCluster() {
                   openshift.withProject() {
-                    sh 'oc apply -f ./02-detalleproducto-service.yaml'
+                    sh 'oc apply -f 02-detalleproducto-service.yaml'
                     def builds = openshift.selector("bc", templateName).related('builds')
                     if (openshift.selector("service", templateName).exists()) { 
                         sh 'echo service created'
@@ -84,8 +84,8 @@ pipeline {
           script {
               openshift.withCluster() {
                   openshift.withProject() {
-                   sh 'oc apply -f ./03-detalleproducto-route.yaml'
-                   sh 'oc apply -f ./04-detalleproducto-route-webgui.yaml'
+                   sh 'oc apply -f 03-detalleproducto-route.yaml'
+                   sh 'oc apply -f 04-detalleproducto-route-webgui.yaml'
                      
                   }
               }
@@ -98,7 +98,7 @@ pipeline {
           script {
               openshift.withCluster() {
                   openshift.withProject() {
-                    sh 'oc apply -f ./05-detalleproducto-horizontal-autoscaler.yaml'
+                    sh 'oc apply -f 05-detalleproducto-horizontal-autoscaler.yaml'
                   }
               }
           }
