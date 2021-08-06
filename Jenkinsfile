@@ -3,12 +3,13 @@ pipeline {
     stages {
         
         stage('Push App Connect Enterprise Docker Image to Registry') {
+            agent {dockerfile true}
             steps {
                 script {
-                    docker.withRegistry( '' ) {
+                    // docker.withRegistry( '' ) {
                         def barImage = docker.build("demo-bco-bogota:${env.BUILD_ID}")
                         barImage.push('latest')
-                    }
+                    // }
                 }
             }
         }   
