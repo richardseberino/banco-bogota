@@ -55,7 +55,7 @@ pipeline {
         script {
             openshift.withCluster() {
                 openshift.withProject() {
-                    echo 'Create deployment from yaml files
+                    echo 'Create deployment from yaml files'
                     sh 'oc apply -f ./01-detalleproducto-deployment.yaml'
                 }
             }
@@ -104,9 +104,5 @@ pipeline {
           }
         }
     }// end of stage 'autoscaler'
-    
-  
-    
-  }
-  
+  }  
 }
