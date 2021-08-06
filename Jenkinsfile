@@ -37,12 +37,12 @@ pipeline {
         script {
             openshift.withCluster() {
                 openshift.withProject() {
-                  sh 'oc get all --selector app=dev-bogota-ops -o name'
+                 
                   openshift.selector("all", [ app : templateName ]).delete() 
                   if (openshift.selector("secrets", templateName).exists()) { 
                     openshift.selector("secrets", templateName).delete()
                   }
-                  sh 'oc get all --selector app=dev-bogota-ops -o name'
+                 
                   echo "Cleanup done"
                 }
             }
