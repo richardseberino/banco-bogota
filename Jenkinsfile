@@ -3,11 +3,7 @@ def templateName = 'dev-bogota-ops'
 
 pipeline {
     
-  agent {
-    node {
-      label 'container-tools' 
-    }
-  }
+  agent any
   
   options{
         timeout(time: 15, unit: 'MINUTES')
