@@ -1,18 +1,14 @@
 pipeline {
     agent any
-    environment {
-        registry = "80190363/ibmace"
-        registryCredential = 'dockerhub'
-    }
     stages {
         
         stage('Push App Connect Enterprise Docker Image to Registry') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 script {
-                    docker.withRegistry( '', 'dockerhub' ) {
+                    docker.withRegistry( '' ) {
                         def barImage = docker.build("demo-bco-bogota:${env.BUILD_ID}")
                         barImage.push('latest')
                     }
@@ -21,7 +17,7 @@ pipeline {
         }   
         stage('Deploy App Connect Enterprise Openshift Container Platform') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 script {
