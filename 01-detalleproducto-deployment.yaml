@@ -33,7 +33,7 @@ spec:
               # defaultMode: 420
       initContainers:
       - name: config
-        image: image-registry.openshift-image-registry.svc:5000/integracion/ace-bar
+        image: image-registry.openshift-image-registry.svc:5000/cp4i/ace-bar
         command: [ "sh", "-c" ]
         args:
           - |
@@ -54,7 +54,7 @@ spec:
              - name: ace-config
                mountPath: /home/aceuser/ace-server/run
       containers:
-      - image: image-registry.openshift-image-registry.svc:5000/integracion/ace-bar
+      - image: image-registry.openshift-image-registry.svc:5000/cp4i/ace-bar
         name: dev-bogota-ops
         imagePullPolicy: Always
         resources:
