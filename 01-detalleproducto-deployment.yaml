@@ -22,8 +22,8 @@ spec:
       annotations:
         openshift.io/generated-by: Devops
     spec:
-      serviceAccountName: aceuser
-      serviceAccount: aceuser
+      serviceAccountName: default
+      serviceAccount: default
       volumes:
             - name: ace-config
               emptyDir: {}
