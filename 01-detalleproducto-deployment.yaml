@@ -40,8 +40,8 @@ spec:
             if [ -z "$MQSI_VERSION" ]; then
                 source /opt/ibm/ace-11/server/bin/mqsiprofile
               fi
-              if ls /home/aceuser/bars/*.bar >/dev/null 2>&1; then
-                for bar in /home/aceuser/bars/*.bar
+              if ls /home/aceuser/initial-config/bars/*.bar >/dev/null 2>&1; then
+                for bar in /home/aceuser/initial-config/bars/*.bar
                 do 
                 mqsibar -a $bar -w /home/aceuser/ace-server 
                 echo 'se esta compilando el bar: ' + $bar 
@@ -50,7 +50,7 @@ spec:
               #   mqsideploy -i 127.0.0.1 -p 7600 -a bars/HelloWord.bar         
         volumeMounts:
          #    - name: bars
-          #     mountPath: /home/aceuser/bars
+          #     mountPath: /home/aceuser/initial-config/bars
              - name: ace-config
                mountPath: /home/aceuser/ace-server/run
       containers:
@@ -84,7 +84,7 @@ spec:
         #     failureThreshold: 3
         volumeMounts:
             # - name: bars
-             #  mountPath: /home/aceuser/bars
+             #  mountPath: /home/aceuser/initial-config/bars
              - name: ace-config
                mountPath: /home/aceuser/ace-server/run
         ports:

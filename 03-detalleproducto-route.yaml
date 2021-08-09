@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/part-of: dev-bogota-ops
     app-type: ACE
 spec:
-  host: dev-bogota-ops-integracion.cp-cluster-510ad6ebead8e7457a6e62904edfa48f-0000.us-south.containers.appdomain.cloud
+  host: dev-bogota-ops-cp4i.cp-cluster-510ad6ebead8e7457a6e62904edfa48f-0000.us-south.containers.appdomain.cloud
   to:
     kind: Service
     name: dev-bogota-ops

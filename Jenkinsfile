@@ -13,9 +13,14 @@ pipeline {
         timeout(time: 15, unit: 'MINUTES')
    }
    
+  //  tools {
+  //    dockerTool 'myDocker'
+  //  }
+
    environment {
         APP = '${templateName}'
         NAMESPACE   = '${openshift.project()'
+        // DOCKER = "${dockerTool}/bin"
     }
    
   stages {
@@ -26,6 +31,8 @@ pipeline {
                 openshift.withCluster() {
                     openshift.withProject() {
                         echo "Using project: ${openshift.project()}"
+                        // def barImage = docker.build("dev-bogota-ops:latest")
+                        // barImage.push('latest')
                     }
                 }
             }
