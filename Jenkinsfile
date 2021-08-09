@@ -57,9 +57,10 @@ pipeline {
         script {
             openshift.withCluster() {
                 openshift.withProject() {
-                    withEnv(["PATH+OC=${tool 'oc.3.11.0'}"])
-                    echo 'Create deployment from yaml files'
-                    sh 'oc apply -f 01-detalleproducto-deployment.yaml'
+                    withEnv(["PATH+OC=${tool 'oc.3.11.0'}"]){
+                      echo 'Create deployment from yaml files'
+                      sh 'oc apply -f 01-detalleproducto-deployment.yaml'
+                    }
                 }
             }
         }
@@ -71,12 +72,13 @@ pipeline {
           script {
               openshift.withCluster() {
                   openshift.withProject() {
-                      withEnv(["PATH+OC=${tool 'oc.3.11.0'}"])
-                    sh 'oc apply -f 02-detalleproducto-service.yaml'
-                    def builds = openshift.selector("bc", templateName).related('builds')
-                    if (openshift.selector("service", templateName).exists()) { 
-                        sh 'echo service created'
-                    }
+                      withEnv(["PATH+OC=${tool 'oc.3.11.0'}"]){
+                        sh 'oc apply -f 02-detalleproducto-service.yaml'
+                        def builds = openshift.selector("bc", templateName).related('builds')
+                        if (openshift.selector("service", templateName).exists()) { 
+                          sh 'echo service created'
+                          }
+                      }
                   }
               }
           }
@@ -88,9 +90,10 @@ pipeline {
           script {
               openshift.withCluster() {
                   openshift.withProject() {
-                      withEnv(["PATH+OC=${tool 'oc.3.11.0'}"])
-                      sh 'oc apply -f 03-detalleproducto-route.yaml'
-                      sh 'oc apply -f 04-detalleproducto-route-webgui.yaml'
+                      withEnv(["PATH+OC=${tool 'oc.3.11.0'}"]){
+                        sh 'oc apply -f 03-detalleproducto-route.yaml'
+                        sh 'oc apply -f 04-detalleproducto-route-webgui.yaml'
+                      }
                   }
               }
           }
@@ -102,8 +105,9 @@ pipeline {
           script {
               openshift.withCluster() {
                   openshift.withProject() {
-                      withEnv(["PATH+OC=${tool 'oc.3.11.0'}"])
-                      sh 'oc apply -f 05-detalleproducto-horizontal-autoscaler.yaml'
+                      withEnv(["PATH+OC=${tool 'oc.3.11.0'}"]){
+                        sh 'oc apply -f 05-detalleproducto-horizontal-autoscaler.yaml'
+                      }
                   }
               }
           }
