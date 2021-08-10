@@ -2,27 +2,16 @@ apiVersion: appconnect.ibm.com/v1beta1
 kind: IntegrationServer
 metadata:
   name: dev-bogota-ops
+  namespace: cp4i
 spec:
-  version: 11.0.0.11-r2
-  license:
-    accept: true
-    license: L-APEH-BY5CY7
-    use: CloudPakForIntegrationNonProduction
-  replicas: 1
-  barURL: >-
-    https://integration-dashboard-dash:3443/v1/directories/TESTBAR?58389ed0-44e9-4951-a453-1917aeee563d
-  configurations:
-    - extensions.zip
-    - odbc-tskdb
-    - credenciais-db2
-  designerFlowsOperationMode: disabled
-  service:
-    endpointType: http
-  router:
-    timeout: 120s
   adminServerSecure: true
   createDashboardUsers: true
+  designerFlowsOperationMode: disabled
   enableMetrics: true
+  license:
+    accept: true
+    license: L-KSBM-C37J2R
+    use: CloudPakForIntegrationNonProduction
   pod:
     containers:
       runtime:
@@ -33,3 +22,18 @@ spec:
           requests:
             cpu: 300m
             memory: 300Mi
+  replicas: 1
+  router:
+    timeout: 120s
+  service:
+    endpointType: http
+  version: 11.0.0.11-r2
+  barURL: >-
+    https://integration-dashboard-dash:3443/v1/directories/TESTBAR?58389ed0-44e9-4951-a453-1917aeee563d
+  configurations:
+    - extensions.zip
+    - odbc-tskdb
+    - credenciais-db2
+  tracing:
+    enabled: true
+    namespace: cp4i
