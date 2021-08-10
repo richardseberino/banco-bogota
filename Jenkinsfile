@@ -48,7 +48,7 @@ pipeline {
             openshift.withCluster() {
                 openshift.withProject() {
                   withEnv(["PATH+OC=${tool 'oc.3.11.0'}"]){
-                  sh 'oc get integrationservers | grep dev-bogota-ops'
+                  // sh 'oc get integrationservers | grep dev-bogota-ops'
                   // openshift.selector("all", [ app : templateName ]).delete() 
                   // if (openshift.selector("secrets", templateName).exists()) { 
                   //   openshift.selector("secrets", templateName).delete()
