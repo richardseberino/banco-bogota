@@ -29,7 +29,7 @@ spec:
     endpointType: http
   version: 12.0.1.0-r1
   barURL: >-
-    http://nexus-route-openshift-operators.cp-poc-510ad6ebead8e7457a6e62904edfa48f-0000.us-south.containers.appdomain.cloud/service/rest/repository/browse/releases/bco-bogota/bco-bogota/latest/bco-bogota-latest.bar
+    http://nexus-route-openshift-operators.cp-poc-510ad6ebead8e7457a6e62904edfa48f-0000.us-south.containers.appdomain.cloud/repository/releases/BARfiles/bco-bogota/latest/bco-bogota-latest.bar
   configurations:
     - nexus-cred
     - extensions.zip
