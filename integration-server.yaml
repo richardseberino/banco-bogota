@@ -32,7 +32,7 @@ spec:
     https://integration-dashboard-dash:3443/v1/directories/TESTBAR?58389ed0-44e9-4951-a453-1917aeee563d
   configurations:
     - extensions.zip
-    - odbc-tskdb
+    - odbc
     - credenciais-db2
   tracing:
     enabled: true
