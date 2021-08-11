@@ -10,7 +10,7 @@ spec:
   enableMetrics: true
   license:
     accept: true
-    license: L-APEH-BY5CY7
+    license: L-KSBM-C37J2R
     use: CloudPakForIntegrationNonProduction
   pod:
     containers:
@@ -27,12 +27,13 @@ spec:
     timeout: 120s
   service:
     endpointType: http
-  version: 11.0.0.11-r2
+  version: 12.0.1.0-r1
   barURL: >-
-    https://integration-dashboard-dash:3443/v1/directories/TESTBAR?a938ec8f-aab3-4ca3-843d-ad04822f24bf
+    http://nexus-route-openshift-operators.cp-poc-510ad6ebead8e7457a6e62904edfa48f-0000.us-south.containers.appdomain.cloud/repository/releases/
   configurations:
+    - nexus-cred
     - extensions.zip
-    - odbc
+    - odbc12
     - credenciais-db2
   tracing:
     enabled: true
