@@ -1,0 +1,4 @@
+{
+  "authType": "BASIC_AUTH",
+  "credentials": { "username": "jenkins", "password": "jenkins" }
+}
