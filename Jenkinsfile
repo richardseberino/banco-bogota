@@ -76,7 +76,7 @@ pipeline {
       steps {
         script {
 
-        sh 'oc get pod dev-bogota-ops -n cp4i | grep -v NAME | awk '{ print "oc delete pod "$1" -n cp4i "}'
+        sh 'oc get pod dev-bogota-ops -n cp4i | grep -v NAME | awk '{ print "oc delete pod "$1" -n cp4i "}''
         
         }
       }
