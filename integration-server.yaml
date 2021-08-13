@@ -38,3 +38,6 @@ spec:
   tracing:
     enabled: true
     namespace: cp4i
+  env:
+  - name: DB2CLIINIPATH
+    value: "/home/aceuser/generic"
