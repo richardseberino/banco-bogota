@@ -41,16 +41,16 @@ pipeline {
                             nexusVersion: NEXUS_VERSION,
                             protocol: NEXUS_PROTOCOL,
                             nexusUrl: NEXUS_URL,
-                            groupId: BARfiles,
-                            version: latest,
+                            groupId: "BARfiles",
+                            version: "latest",
                             repository: NEXUS_REPOSITORY,
                             credentialsId: NEXUS_CREDENTIAL_ID,
                             artifacts: [
                                 
-                                [artifactId: bco-bogota,
+                                [artifactId: "bco-bogota",
                                 classifier: '',
-                                file: BARfiles/TESTBAR.bar,
-                                type: bar]
+                                file: "BARfiles/TESTBAR.bar",
+                                type: "bar"]
                             ]
                         );
                 }
