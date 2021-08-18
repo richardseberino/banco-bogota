@@ -30,6 +30,7 @@ pipeline {
         NEXUS_REPOSITORY = "releases"
         // Jenkins credential id to authenticate to Nexus OSS
         NEXUS_CREDENTIAL_ID = "nexus-credentials"
+        IMAGE_VERSION = '${BUILD_NUMBER}'
     }
    
   stages {
@@ -42,11 +43,10 @@ pipeline {
                             protocol: NEXUS_PROTOCOL,
                             nexusUrl: NEXUS_URL,
                             groupId: "BARfiles",
-                            version: "latest",
+                            version: IMAGE_VERSION,
                             repository: NEXUS_REPOSITORY,
                             credentialsId: NEXUS_CREDENTIAL_ID,
                             artifacts: [
-                                
                                 [artifactId: "bco-bogota",
                                 classifier: '',
                                 file: "BARfiles/TESTBAR.bar",
@@ -61,26 +61,14 @@ pipeline {
       steps {
         script {
             openshift.withCluster() {
-                openshift.withProject() {
-                    // withEnv(["PATH+OC=${tool 'oc-client'}"]){
-                      echo 'Create integration server'
-                      sh 'oc apply -f integration-server.yaml'
-                    // }
+                openshift.withProject() {  
+                  echo 'Create integration server'
+                  sh 'sed -i \'s/latest/\'${BUILD_NUMBER}\'/g\' integration-server.yaml'
+                  sh 'oc apply -f integration-server.yaml'
                 }
             }
         }
       }
     }// end of stage 'deployment'
-    
-    stage('Clean pods'){
-      steps {
-        script {
-
-        sh 'oc get pod -n cp4i | grep dev-bogota-ops-is | awk \'{ print "oc delete pod "$1" -n cp4i "}\' | bash'
-        
-        }
-      }
-    }
-
   }  
 }
